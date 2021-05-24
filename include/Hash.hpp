@@ -1,3 +1,4 @@
+// Copyright 2021 LemuriiL <nice.duble@mail.ru>
 #include <atomic>
 #include <boost/log/core.hpp>
 #include <boost/log/expressions.hpp>
@@ -48,5 +49,4 @@ class Hash {
   std::vector<boost::thread> listOfthread;
   json j;
 };
-
 #endif  // INCLUDE_HASH_HPP_"

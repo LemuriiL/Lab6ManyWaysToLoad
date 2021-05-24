@@ -67,8 +67,17 @@ void Hash::initThreads() {
 
 void Hash::initLogs() {  //
   boost::log::add_common_attributes();
-  boost::log::add_console_log(std::cout, keywords::format = "[%TimeStamp%][%Severity%]: %Message%",keywords::time_based_rotation = sinks::file::rotation_at_time_point(0, 0, 0));
-  boost::log::add_file_log(keywords::target = "logs/", keywords::file_name = "%y%m%d_%3N.log",keywords::rotation_size = 10 * 1024 * 1024,keywords::scan_method = sinks::file::scan_matching,keywords::time_based_rotation =sinks::file::rotation_at_time_point(12, 0, 0),keywords::format = "[%TimeStamp%][%Severity%]: %Message%");
+  boost::log::add_console_log(
+      std::cout, keywords::format = "[%TimeStamp%][%Severity%]: %Message%",
+      keywords::time_based_rotation =
+          sinks::file::rotation_at_time_point(0, 0, 0));
+  boost::log::add_file_log(
+      keywords::target = "logs/", keywords::file_name = "%y%m%d_%3N.log",
+      keywords::rotation_size = 10 * 1024 * 1024,
+      keywords::scan_method = sinks::file::scan_matching,
+      keywords::time_based_rotation =
+          sinks::file::rotation_at_time_point(12, 0, 0),
+      keywords::format = "[%TimeStamp%][%Severity%]: %Message%");
 }
 
 void Hash::jsonOut(const int& data, const std::string& hash,
